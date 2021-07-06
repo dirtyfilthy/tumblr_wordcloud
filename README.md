@@ -7,6 +7,6 @@ install requirements
 
 set tumblr API key in tumblr_wordcloud/lib/config.py
 
-    ./startdev.sh
+    ./start_dev.sh
 
 
