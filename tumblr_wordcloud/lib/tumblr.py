@@ -35,7 +35,10 @@ def get_posts(blog, tag=None):
             print(r.status_code)
             break;
         json = r.json()
-        next_maybe = json['response']['_links'].get('next')
+        links = json['response'].get('_links')
+        next_maybe = None
+        if links:
+            next_maybe = links.get('next')
         if next_maybe and next_maybe.get('href'):
             next_maybe = "https://api.tumblr.com" + next_maybe['href']
 
