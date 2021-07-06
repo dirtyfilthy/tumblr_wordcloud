@@ -1,6 +1,7 @@
-= Tumblr Wordcloud =
-pip3 install wheel
-pip3 install -r requirements.txt
+# Tumblr Wordcloud 
 
-./startdev.sh
+    pip3 install wheel
+    pip3 install -r requirements.txt
+
+   ./startdev.sh
 
