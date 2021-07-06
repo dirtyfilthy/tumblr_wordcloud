@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Tumblr Wordcloud Generator</title>
+</head>
+<body>
+	<h1>Tumblr Wordcloud Generator</h1>
+
+	{% if tag and tag != '' %}
+	<p>generated for {{blog}} with tag #{{tag}}</p>
+	{% else %}
+	<p>generated for {{blog}}</p>
+	{% endif %}
+	<p>Author <a href="https://dirtyfilthy.tumblr.com/">dirtyfilthy.tumblr.com</a></p>
+	<p>
+		<img src="/static/generated/{{image}}" />
+	</p>
+	<p>Right click and select "save as" or "save image" to save</p>
+</body>

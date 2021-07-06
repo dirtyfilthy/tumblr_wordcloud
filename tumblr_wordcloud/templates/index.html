@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Tumblr Wordcloud Generator</title>
+</head>
+<body>
+	<h1>Tumblr Wordcloud Generator</h1>
+	<p>Author <a href="https://dirtyfilthy.tumblr.com/">dirtyfilthy.tumblr.com</a></p>
+	<p>This tool will generate a word cloud from tumblr posts from a blog and an option tag</p>
+	<form action="/generate" method="post">
+		<p>
+			<label for="blog">Enter blog name (i.e. dirtyfilty.tumblr.com)</label>
+		</p>
+		<p>
+			<input type="text" name="blog" />
+		</p>
+		<p>
+			<label for="tag">Enter a single tag or leave blank for all (i.e. nsfwpokemon)</label>
+		</p>
+		<p>
+			<input type="text" name="tag" />
+		</p>
+		<p>
+			<input type="submit" value="generate" />
+		</p>
+	</form>
+</body>
