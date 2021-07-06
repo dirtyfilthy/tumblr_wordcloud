@@ -26,9 +26,13 @@ def get_posts(blog, tag=None):
     next_url = url
 
     while(next_url):
-
+        if not "api_key" in next_url:
+            next_url += f"&api_key={config.APIKEY}"
         r=requests.get(next_url)
+        print(next_url)
         if r.status_code != 200:
+            print("status code")
+            print(r.status_code)
             break;
         json = r.json()
         next_maybe = json['response']['_links'].get('next')
@@ -36,7 +40,9 @@ def get_posts(blog, tag=None):
             next_maybe = "https://api.tumblr.com" + next_maybe['href']
 
         next_url = next_maybe
-        these_posts = map(lambda p: p['body'], json['response']['posts'])
+        
+        #pp.pprint(json)
+        these_posts = map(lambda p: p.get('body'), json['response']['posts'])
         posts.extend(these_posts)
         if len(posts) >= config.MAX_POSTS:
             break
@@ -45,6 +51,8 @@ def get_posts(blog, tag=None):
 
 
 def clean_post(post):
+    if post is None:
+        return ""
     post = html.unescape(post)
     post = post.replace("-", " ")
     post = post.replace("<p>", "\n")
@@ -60,6 +68,7 @@ def clean_post(post):
 
 
 def clean_posts(posts):
+    print(r"number of posts {}".format(len(posts)))
     return list(map(lambda p: clean_post(p), posts))
 
 def get_text(blog, tag=None):

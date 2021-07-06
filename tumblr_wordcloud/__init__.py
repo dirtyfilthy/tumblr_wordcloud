@@ -39,6 +39,8 @@ def create_app(test_config=None):
         tag  = request.form.get('tag')
         blog = blog.strip()
         tag  = tag.strip()
+        blog = blog.replace("https://", "")
+        blog = blog.replace("/", "")
         if not re.search(r"\.tumblr\.com$", blog):
             blog = blog + ".tumblr.com"
         
